@@ -9,8 +9,8 @@ stages:
 
 
 variables:
-  CONTAINER_APP_IMAGE: hoaxly/hoaxlybot-app:$CI_COMMIT_REF_SLUG
-  CONTAINER_WEB_IMAGE: hoaxly/hoaxlybot-web:$CI_COMMIT_REF_SLUG
+  CONTAINER_APP_IMAGE: hoaxlybot-app:$CI_COMMIT_REF_SLUG
+  CONTAINER_WEB_IMAGE: hoaxlybot-web:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
   CONTAINER_APP_FILE: app.dockerfile
 
