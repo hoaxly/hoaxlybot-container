@@ -9,8 +9,10 @@ stages:
 
 
 variables:
-  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_APP_IMAGE: hoaxly/hoaxlybot-app:$CI_COMMIT_REF_SLUG
+  CONTAINER_WEB_IMAGE: hoaxly/hoaxlybot-web:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  CONTAINER_APP_FILE: app.dockerfile
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.acolono.net:444
@@ -18,8 +20,10 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --pull -t $CONTAINER_TEST_IMAGE .
-    - docker push $CONTAINER_TEST_IMAGE
+    - docker build --pull -t $CONTAINER_APP_IMAGE -f app.dockerfile .
+    - docker push $CONTAINER_APP_IMAGE
+    - docker build --pull -t $CONTAINER_WEB_IMAGE -f web.dockerfile .
+    - docker push $CONTAINER_WEB_IMAGE
 
 release-image:
   stage: release
