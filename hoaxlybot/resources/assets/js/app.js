@@ -15,8 +15,9 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import {TinkerComponent} from 'botman-tinker';
-Vue.component('botman-tinker', TinkerComponent);
+//import {TinkerComponent} from './components/TinkerComponent.vue';
+
+Vue.component('botman-tinker', require('./components/TinkerComponentHoaxly.vue'));
 
 const app = new Vue({
     el: '#app'

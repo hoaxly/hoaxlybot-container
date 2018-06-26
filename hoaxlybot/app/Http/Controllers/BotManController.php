@@ -33,6 +33,7 @@ class BotManController extends Controller
     {
       $botman = app('botman');
 
+
       // Use rasa_nlu.
       $rasaNLU = RasaNLU::create()->listenForAction(FALSE);
       $botman->middleware->received($rasaNLU);
@@ -44,12 +45,13 @@ class BotManController extends Controller
           // Listen for all messages.
           $bot->hears(TRUE, function($botman) {
 
-            $entities = $botman->getMessage()->getExtras('apiIntent');
+            $intent = $botman->getMessage()->getExtras('apiIntent');
+            $entities = $botman->getMessage()->getExtras('apiEntities');
 
-            if (!empty($entities->name)) {
-              switch ($entities->name) {
+            if (!empty($intent->name)) {
+              switch ($intent->name) {
                 case 'url_search':
-                  $botman->startConversation(new IntendCheckUrl());
+                  $botman->startConversation(new IntendCheckUrl($entities));
                   break;
                 case 'greet':
                   $botman->startConversation(new ConvWelcome());
@@ -111,65 +113,6 @@ class BotManController extends Controller
         });
         $botman->listen();
       }
-
-
-           /*
-
-                $botman->hears('.*(goals|goal).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQGoals());
-                });
-
-                $botman->hears('.*(how).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQHow());
-                });
-
-                $botman->hears('.*(licence|free to use).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQLicence());
-                });
-
-                $botman->hears('.*(can I help|contribute).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQContribute());
-                });
-
-                $botman->hears('.*(Who is doing the factchecks).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQFactcheckWho());
-                });
-
-                $botman->hears('.*(factcheck source).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQFactcheckSources());
-                });
-
-                $botman->hears('.*(report|misleading|error).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQFactcheckReport());
-                });
-
-                $botman->hears('.*(factchecker open to provide content).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQFactcheckerConcern());
-                });
-
-                $botman->hears('.*(language support).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQLanguagesSupported());
-                });
-
-                $botman->hears('.*(get listed).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQGetListed());
-                });
-
-                $botman->hears('.*(add source).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQAddSource());
-                });
-
-                $botman->hears('.*(meaningfulness|make a difference?|does this work?|does this really work?).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQMeaningfulness());
-                });
-
-                $botman->hears('.*(accuse people|change people|target group).*', function ($bot) {
-                    $bot->startConversation(new IntendFAQTools4Us());
-                });
-
-                $botman->listen();
-           */
-
     }
 
     /**

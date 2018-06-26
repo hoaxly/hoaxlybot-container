@@ -8,16 +8,16 @@ use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 
-class IntendFAQLanguagesSupported extends Conversation
+class IntendFAQFactCheckingHowto extends Conversation
 {
     /**
      * First question
      */
-    public function IntendFAQLanguagesSupported()
+    public function IntendFAQFactCheckingHowto()
     {
-        $this->say("The hoax.ly database will have a focus on European and English/German content. But the system will be flexible enough to provide content in any language.
+        $this->say('You will find some information about how to fact check here: https://fullfact.org/toolkit/');
+        $this->say('I will try to give you more sources and information about this important topic soon!');
 
-        Myself is only speaking English so far, but I want to learn German too!");
     }
 
     /**
@@ -25,6 +25,6 @@ class IntendFAQLanguagesSupported extends Conversation
      */
     public function run()
     {
-        $this->IntendFAQLanguagesSupported();
+        $this->IntendFAQFactCheckingHowto();
     }
 }

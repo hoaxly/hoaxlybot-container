@@ -1,0 +1,55 @@
+.footer {
+  background: transparent;
+  text-align: right;
+  padding: 10px;
+  color: white;
+  z-index: 666;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+};
+
+.parallax > use {
+  animation: move-forever 12s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -3s;
+    fill: darken($color-primary, 10);
+  }
+  &:nth-child(2) {
+    animation-delay: -2s;
+    animation-duration: 5s;
+    fill: darken($color-primary, 5);
+  }
+
+  &:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 3s;
+    fill: $color-primary;
+  }
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+.waves {
+  display: block;
+  width: 100%;
+  height: 10em;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: -100;
+}
+
+//prevent high ripples
+@media (max-width: 50em) {
+  .waves {
+    height: 17vw;
+  }
+}

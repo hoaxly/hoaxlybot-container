@@ -7,6 +7,8 @@ use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
+use App\Conversations\en\IntendFAQHow;
+
 
 class IntendFAQGoals extends Conversation
 {
@@ -15,7 +17,25 @@ class IntendFAQGoals extends Conversation
      */
     public function IntendFAQGoals()
     {
-        $this->say('Our goals with hoax.ly? We want to build tools that provide technological assistance to help people to be data literate consumers.');
+        $this->say('We want to build tools that provide technological assistance to help people to be data literate consumers.');
+    }
+
+    public function askNextStep()
+    {
+        $this->ask('Do you want to know more?', [
+          [
+            'pattern' => 'yes|yep|yeah|please|ja',
+            'callback' => function () {
+                $this->bot->startConversation(new IntendFAQHow());
+            }
+          ],
+          [
+            'pattern' => 'nah|no|nope|nein|never|not at all',
+            'callback' => function () {
+                $this->say('Sad Panda! :(');
+            }
+          ]
+        ]);
     }
 
     /**
@@ -24,5 +44,6 @@ class IntendFAQGoals extends Conversation
     public function run()
     {
         $this->IntendFAQGoals();
+        $this->askNextStep();
     }
 }

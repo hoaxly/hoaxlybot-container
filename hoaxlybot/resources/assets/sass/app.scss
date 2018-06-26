@@ -1,9 +1,23 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
 @import "variables";
 
+// Layout
+@import "layout/_layout.scss";
+
+// Components
+@import "components/_body.scss";
+@import "components/_content.scss";
+@import "components/_footer.scss";
+@import "components/_header.scss";
+
+
+
+
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
