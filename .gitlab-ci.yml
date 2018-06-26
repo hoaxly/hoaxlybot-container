@@ -9,10 +9,9 @@ stages:
 
 
 variables:
-  CONTAINER_APP_IMAGE: hoaxlybot-app:$CI_COMMIT_REF_SLUG
-  CONTAINER_WEB_IMAGE: hoaxlybot-web:$CI_COMMIT_REF_SLUG
+  CONTAINER_APP_IMAGE: $CI_REGISTRY_IMAGE-app:$CI_COMMIT_REF_SLUG
+  CONTAINER_WEB_IMAGE: $CI_REGISTRY_IMAGE-web:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
-  CONTAINER_APP_FILE: app.dockerfile
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.acolono.net:444
