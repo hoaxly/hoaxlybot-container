@@ -39,6 +39,5 @@ $ curl -X POST localhost:5000/parse -d '{"q":"I am looking for Mexican food"}' |
 # Todos
 - Check URL conversation and hoaxly API calls
 - German conversations
-- Setup deployment
 - Idea: Provide information how to debunk content
 - Idea: Ask and collect information what information the bot should provide

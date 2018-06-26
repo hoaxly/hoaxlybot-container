@@ -55,10 +55,6 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "BotMan\\Studio\\Providers\\DriverServiceProvider::publishDriverConfigurations"
-        ],
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover"
         ]
     },
     "config": {
