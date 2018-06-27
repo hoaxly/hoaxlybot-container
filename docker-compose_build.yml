@@ -1,0 +1,38 @@
+version: '2'
+services:
+
+  # The Application
+  app:
+    image: hoaxlybot-container:develop
+    container_name: app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=database"
+    links:
+      - rasa
+
+  # RASA NLU
+  rasa:
+    container_name: rasa
+    image: registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:latest
+    ports:
+      - 5000
+
+  # The Database
+  database:
+    image: mysql:5.6
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=homestead"
+      - "MYSQL_USER=homestead"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+      - "33061:3306"
+
+volumes:
+  dbdata:

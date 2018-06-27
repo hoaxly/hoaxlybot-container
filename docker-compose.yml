@@ -1,34 +1,30 @@
 version: '2'
 services:
 
-  # The Application
+  #  The Application
   app:
-    build:
-      context: ./
-      dockerfile: app.dockerfile
+    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-latest
     working_dir: /var/www
     volumes:
-      - ./:/var/www
+      - /var/www/storage
+    env_file: '.env'
     environment:
-      - "DB_PORT=3306"
       - "DB_HOST=database"
+      - "REDIS_HOST=cache"
     links:
       - rasa
 
   # The Web Server
   web:
-    build:
-      context: ./
-      dockerfile: web.dockerfile
-    working_dir: /var/www
+    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
     volumes:
-     - ./conf/nginx:/etc/nginx/conf.d
-     - ./logs/nginx:/var/log/nginx
-     - ..:/var/www/html
-    volumes_from:
-      - app
+      - ./conf/nginx:/etc/nginx/conf.d
+      - ./logs/nginx:/var/log/nginx
+      - ..:/var/www/html
+      - "${LE_DIR}:/etc/letsencrypt"
     ports:
-      - 90:90
+      - 80:80
+      - 443:443
     depends_on:
       - app
     links:
@@ -50,8 +46,10 @@ services:
       - "MYSQL_USER=homestead"
       - "MYSQL_PASSWORD=secret"
       - "MYSQL_ROOT_PASSWORD=secret"
-    ports:
-      - "33061:3306"
+
+  # redis
+  cache:
+    image: redis:3.0-alpine
 
 volumes:
   dbdata:
