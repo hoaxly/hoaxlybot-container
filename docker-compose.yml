@@ -14,10 +14,11 @@ services:
       - "REDIS_HOST=cache"
     links:
       - rasa
+      - database
 
   # The Web Server
   web:
-    image: nginx
+    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
     ports:
       - 80:80
     volumes:
@@ -26,9 +27,6 @@ services:
       - app
     links:
       - app
-    environment:
-     - NGINX_HOST=chat.hoax.ly
-     - NGINX_PORT=80
 
   # RASA NLU
   rasa:
