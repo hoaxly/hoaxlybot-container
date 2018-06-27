@@ -5,9 +5,8 @@ RUN apt-get update \
     git \
     zip
 
-
 # replace shell with bash so we can source files
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # update the repository sources list
 # and install dependencies
@@ -21,7 +20,6 @@ RUN apt-get install --no-install-recommends gcc make libpng-dev
 
 # install node and npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && apt-get install -y nodejs
-
 
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/bin/composer
