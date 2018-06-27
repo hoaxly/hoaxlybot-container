@@ -3,7 +3,7 @@ services:
 
   #  The Application
   app:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-latest
+    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-develop
     working_dir: /var/www
     container_name: app
     volumes:
@@ -17,13 +17,12 @@ services:
 
   # The Web Server
   web:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
+    image: nginx:1.10-alpine
     volumes:
       - ./conf/nginx:/etc/nginx/conf.d
       - ./logs/nginx:/var/log/nginx
     ports:
       - 80:80
-      - 443:443
     depends_on:
       - app
     links:
