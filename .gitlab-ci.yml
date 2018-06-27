@@ -24,6 +24,8 @@ build:
     - docker push $CONTAINER_APP_IMAGE
     - docker build --pull -t $CONTAINER_WEB_IMAGE -f web.dockerfile .
     - docker push $CONTAINER_WEB_IMAGE
+  only:
+    - develop
 
 release-image:
   stage: release
