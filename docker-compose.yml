@@ -3,7 +3,7 @@ services:
 
   #  The Application
   app:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-develop
+    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:latest
     working_dir: /var/www
     container_name: app
     volumes:
