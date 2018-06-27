@@ -3,7 +3,9 @@ services:
 
   # The Application
   app:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-latest
+    build:
+      context: ./
+      dockerfile: app.dockerfile
     working_dir: /var/www
     volumes:
       - ./:/var/www
@@ -15,12 +17,22 @@ services:
 
   # The Web Server
   web:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
+    build:
+      context: ./
+      dockerfile: web.dockerfile
     working_dir: /var/www
+    volumes:
+     - ./conf/nginx:/etc/nginx/conf.d
+     - ./logs/nginx:/var/log/nginx
+     - ..:/var/www/html
     volumes_from:
       - app
     ports:
-      - 8080:80
+      - 90:90
+    depends_on:
+      - app
+    links:
+      - app
 
   # RASA NLU
   rasa:

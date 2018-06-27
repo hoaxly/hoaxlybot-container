@@ -18,10 +18,17 @@ services:
   web:
     image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
     volumes:
+      - ./conf/nginx:/etc/nginx/conf.d
+      - ./logs/nginx:/var/log/nginx
+      - ..:/var/www/html
       - "${LE_DIR}:/etc/letsencrypt"
     ports:
       - 80:80
       - 443:443
+    depends_on:
+      - app
+    links:
+      - app
 
   # RASA NLU
   rasa:
