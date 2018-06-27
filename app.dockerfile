@@ -31,5 +31,7 @@ RUN cd /var/www/hoaxlybot && npm install && npm run production
 
 WORKDIR "/var/www/hoaxlybot"
 
+RUN chmod 755 "/var/www/hoaxlybot"
+
 # run PHP server
 CMD php -S 0.0.0.0:80 -t /var/www/hoaxlybot
