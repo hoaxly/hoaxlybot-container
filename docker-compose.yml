@@ -21,7 +21,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ../hoaxlybot/public:/var/www/public
+      - ./hoaxlybot/public:/usr/share/nginx/html
     depends_on:
       - app
     links:
