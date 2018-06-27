@@ -5,6 +5,7 @@ services:
   app:
     image: registry.acolono.net:444/hoaxly/hoaxlybot-container:app-latest
     working_dir: /var/www
+    container_name: app
     volumes:
       - /var/www/storage
     env_file: '.env'
@@ -20,8 +21,6 @@ services:
     volumes:
       - ./conf/nginx:/etc/nginx/conf.d
       - ./logs/nginx:/var/log/nginx
-      - ..:/var/www/html
-      - "${LE_DIR}:/etc/letsencrypt"
     ports:
       - 80:80
       - 443:443
