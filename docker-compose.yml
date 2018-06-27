@@ -18,11 +18,10 @@ services:
   # The Web Server
   web:
     image: nginx:1.10-alpine
-    volumes:
-      - ./conf/nginx:/etc/nginx/conf.d
-      - ./logs/nginx:/var/log/nginx
     ports:
       - 80:80
+    volumes:
+      - ../hoaxlybot/public:/var/www/public
     depends_on:
       - app
     links:
