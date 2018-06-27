@@ -11,7 +11,8 @@ stages:
 variables:
   CONTAINER_APP_IMAGE: $CI_REGISTRY_IMAGE:app-$CI_COMMIT_REF_SLUG
   CONTAINER_WEB_IMAGE: $CI_REGISTRY_IMAGE:web-$CI_COMMIT_REF_SLUG
-  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+  CONTAINER_RELEASE_APP_IMAGE: $CI_REGISTRY_IMAGE:app-latest
+  CONTAINER_RELEASE_WEB_IMAGE: $CI_REGISTRY_IMAGE:web-latest
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.acolono.net:444
@@ -27,8 +28,9 @@ build:
 release-image:
   stage: release
   script:
-    - docker pull $CONTAINER_TEST_IMAGE
-    - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
-    - docker push $CONTAINER_RELEASE_IMAGE
+    - docker build --pull -t $CONTAINER_RELEASE_APP_IMAGE -f app.dockerfile .
+    - docker push $CONTAINER_RELEASE_APP_IMAGE
+    - docker build --pull -t $CONTAINER_RELEASE_WEB_IMAGE -f web.dockerfile .
+    - docker push $CONTAINER_RELEASE_WEB_IMAGE
   only:
     - master
