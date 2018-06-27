@@ -17,15 +17,18 @@ services:
 
   # The Web Server
   web:
-    image: nginx:1.10-alpine
+    image: nginx
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ../hoaxlybot/public:/var/www/public
     depends_on:
       - app
     links:
       - app
+    environment:
+     - NGINX_HOST=chat.hoax.ly
+     - NGINX_PORT=80
 
   # RASA NLU
   rasa:
