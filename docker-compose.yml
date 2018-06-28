@@ -6,31 +6,35 @@ services:
     image: registry.acolono.net:444/hoaxly/hoaxlybot-container:latest
     working_dir: /var/www
     container_name: app
+    restart: always
     volumes:
       - /var/www/storage
     env_file: '.env'
     environment:
       - "DB_HOST=database"
       - "REDIS_HOST=cache"
+    ports:
+      - 80:80
     links:
       - rasa
       - database
 
   # The Web Server
-  web:
-    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
-    ports:
-      - 80:80
-    volumes:
-      - ./hoaxlybot/public:/usr/share/nginx/html
-    depends_on:
-      - app
-    links:
-      - app
+#  web:
+#    image: registry.acolono.net:444/hoaxly/hoaxlybot-container:web-latest
+#    ports:
+#      - 80:80
+#    volumes:
+#      - ./hoaxlybot/public:/usr/share/nginx/html
+#    depends_on:
+#      - app
+#    links:
+#      - app
 
   # RASA NLU
   rasa:
     image: registry.acolono.net:444/hoaxly/hoaxly-rasa-nlu-container:latest
+    restart: always
     ports:
       - 5000
 
@@ -48,6 +52,7 @@ services:
   # redis
   cache:
     image: redis:3.0-alpine
+    restart: always
 
 volumes:
   dbdata:
