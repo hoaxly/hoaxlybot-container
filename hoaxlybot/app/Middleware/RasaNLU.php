@@ -28,7 +28,7 @@ class RasaNLU implements MiddlewareInterface
     protected $lastResponseHash;
 
     /** @var string */
-    protected $apiUrl = 'http://localhost:5000/parse';
+    protected $apiUrl = 'rasa:5000/parse';
 
     /** @var bool */
     protected $listenForAction = false;
