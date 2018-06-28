@@ -16,7 +16,7 @@ RUN apt-get update \
     && apt-get install -y gnupg
 
 # Install libpng because of node issues. See https://github.com/imagemin/pngquant-bin/issues/78.
-RUN apt-get install --no-install-recommends gcc make libpng-dev
+RUN apt-get install --no-install-recommends gcc make libpng-dev vim -y
 
 # install node and npm
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && apt-get install -y nodejs
