@@ -1,14 +1,12 @@
-FROM php:7-fpm-alpine
+FROM php:7.2-fpm
 
 RUN apt-get update \
     && apt-get install -y wget \
-    coreutils \
-    net-tools \
     git \
     zip
 
 # replace shell with bash so we can source files
-# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # update the repository sources list
 # and install dependencies
