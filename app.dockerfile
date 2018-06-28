@@ -1,7 +1,9 @@
-FROM php:7.2-fpm
+FROM php:7-fpm-alpine
 
 RUN apt-get update \
     && apt-get install -y wget \
+    coreutils \
+    net-tools \
     git \
     zip
 
@@ -34,4 +36,5 @@ WORKDIR "/var/www/hoaxlybot"
 RUN chmod 755 "/var/www/hoaxlybot"
 
 # run PHP server
-CMD php -S 0.0.0.0:80 -t /var/www/hoaxlybot
+#CMD php -S 0.0.0.0:80 -t /var/www/hoaxlybot
+ENTRYPOINT ["/usr/local/bin/php", "-S", "0.0.0.0:80", "-t", "/var/www/hoaxlybot"]

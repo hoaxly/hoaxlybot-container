@@ -1,5 +1,5 @@
-FROM nginx
+FROM nginx:latest
 
 ADD conf/nginx/vhost.conf /etc/nginx/conf.d/default.conf
 
-COPY hoaxlybot/public /var/www/public
+#COPY hoaxlybot/public /var/www/public
