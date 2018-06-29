@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <svg class="logo" style="width: 100px; height: 100px" enable-background="new 0 0 250 250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" width="250px" height="250px">
+        <svg class="logo" style="width: 100px; height: 100px; margin: 20px" enable-background="new 0 0 250 250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" width="250px" height="250px">
             <style type="text/css">
                 .i-hoaxly-logo__box {
                     fill: #6600AA;
