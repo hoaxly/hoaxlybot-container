@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
-Route::get('/web', 'BotManController@tinker');
+Route::get('/', 'BotManController@tinker');
