@@ -7,6 +7,12 @@
   position: fixed;
   bottom: 0;
   right: 0;
+  a,
+  a:visited,
+  a:link,
+  a:active {
+    color: white;
+  }
 };
 
 .parallax > use {

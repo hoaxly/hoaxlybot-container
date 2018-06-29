@@ -4,4 +4,16 @@
   svg {
     max-height: 100%;
   }
+
+  .logo {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+  }
+
+  @media only screen and (min-width: 730px) {
+    .logo {
+      position: fixed;
+    }
+  }
 }

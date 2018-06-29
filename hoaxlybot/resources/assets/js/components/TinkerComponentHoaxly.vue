@@ -164,7 +164,7 @@
         max-width: 70%;
         color: #6600aa;
         text-align: left;
-        overflow: hidden;
+        overflow-wrap: break-word;
     }
 
     .ChatLog__entry.ChatLog__entry_mine .ChatLog__message {
