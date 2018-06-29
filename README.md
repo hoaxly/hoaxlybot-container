@@ -3,7 +3,7 @@
 
 This project is using Botman and Botman Studio, a laravel based chatbot framework: https://botman.io
 
-## Development
+## Development with docker
 
 We provide docker images for development and production.
 
@@ -25,6 +25,21 @@ You can specify another port for the app service in docker-compose.yml file if y
     ports:
       - 90:80
 
+## Running locally without docker
+
+Please see this system requirements: https://laravel.com/docs/5.6/installation#server-requirements
+
+Clone project and run:
+$composer install
+$npm install
+
+$php artisan serve 
+should start an development server.
+
+Run $npm dev to compile files.
+
+Please be aware that running the app without docker the rasa_nlu server is not reachable, so no answers
+will be provided by default. But see the section about how to use rasa to run a rasa server locally.
 
 ## Issues
 
@@ -34,7 +49,10 @@ MacOs: sh: composer: command not found
 
 ## Using rasa
 
-The rasa server should be available with port 5000. Check the hoaxly/hoaxly-rasa-nlu_container repository.
+The rasa server should be available by calling the url rasa:5000 (docker service). 
+Check the hoaxly/hoaxly-rasa-nlu_container repository to run a server locally under localhost:5000. 
+You can change the api url in /app/Middleware/RasaNLU.php.
+
 
 
 # Todos
