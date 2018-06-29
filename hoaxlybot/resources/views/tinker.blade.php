@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <div class="header">
-        <svg class="logo" enable-background="new 0 0 250 250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" width="250px" height="250px">
+        <svg class="logo" style="width: 100px; height: 100px" enable-background="new 0 0 250 250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" width="250px" height="250px">
             <style type="text/css">
                 .i-hoaxly-logo__box {
                     fill: #6600AA;
@@ -64,7 +64,7 @@
     </div>
 
     <div class="footer">
-        <a href="https://www.hoax.ly" target="_blank"><small>About</small></a>, <a href="https://www.hoax.ly/legal_notice.html" target="_blank"><small>Contact</small></a>,  <a href="https://www.hoax.ly/data_privacy.html" target="_blank"><small>Data Privacy</small></a> | <small>This project is supported by netidee.at</small>
+        <a href="https://www.hoax.ly" target="_blank" style="color:white"><small>About</small></a>, <a href="https://www.hoax.ly/legal_notice.html" style="color:white" target="_blank"><small>Contact</small></a>,  <a href="https://www.hoax.ly/data_privacy.html" style="color:white" target="_blank"><small>Data Privacy</small></a> | <small>This project is supported by netidee.at</small>
     </div>
     <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none">
         <defs>
