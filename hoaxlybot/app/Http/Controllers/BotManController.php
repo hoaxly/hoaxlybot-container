@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Conversations\en\ConvWelcome;
 use App\Conversations\en\DefaultConversation;
+use App\Conversations\en\IntendFAQDataPrivacy;
+use App\Conversations\en\IntendFAQFactCheckingHowto;
 use App\Conversations\en\IntendFAQFactcheckReport;
 use App\Conversations\en\IntendFAQFactcheckSources;
 use App\Conversations\en\IntendFAQAddSource;
@@ -94,6 +96,12 @@ class BotManController extends Controller
                   break;
                 case 'faq_change_people':
                   $botman->startConversation(new IntendFAQTools4Us());
+                  break;
+                case 'faq_factcheck_howto':
+                  $botman->startConversation(new IntendFAQFactCheckingHowto());
+                  break;
+                case 'faq_data_privacy':
+                  $botman->startConversation(new IntendFAQDataPrivacy());
                   break;
               }
             }

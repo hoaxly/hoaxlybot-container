@@ -31,7 +31,7 @@ class ConvWelcome extends Conversation
                 if ($answer->getValue() === 'url') {
                     // = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
                     //$this->say($joke->value->joke);
-                    $this->bot->startConversation(new IntendCheckURL());
+                    $this->bot->startConversation(new IntendCheckURL(NULL));
                 }
                 elseif ($answer->getValue() === 'faq_goals') {
                     $this->bot->startConversation(new IntendFAQGoals());

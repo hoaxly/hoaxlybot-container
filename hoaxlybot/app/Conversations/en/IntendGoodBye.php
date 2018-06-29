@@ -8,14 +8,14 @@ use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 
-class IntendFAQFactcheckReport extends Conversation
+class IntendGoodbye extends Conversation
 {
     /**
      * First question
      */
-    public function IntendFAQFactcheckReport()
+    public function IntendGoodBye()
     {
-        $this->say('Please open an issue or inform us about your concerns here: https://github.com/hoaxly/hoaxly-spiderbreeder/issues');
+        $this->say('Good bye! And remember: Stay critical! There is so much bullshit content out there!');
     }
 
     /**
@@ -23,6 +23,6 @@ class IntendFAQFactcheckReport extends Conversation
      */
     public function run()
     {
-        $this->IntendFAQFactcheckReport();
+        $this->IntendGoodBye();
     }
 }
