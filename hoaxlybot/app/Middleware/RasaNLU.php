@@ -28,7 +28,7 @@ class RasaNLU implements MiddlewareInterface
     protected $lastResponseHash;
 
     /** @var string */
-    protected $apiUrl = 'rasa:5000/parse';
+    protected $apiUrl = 'http://rasa:5000/parse';
 
     /** @var bool */
     protected $listenForAction = false;
@@ -80,7 +80,7 @@ class RasaNLU implements MiddlewareInterface
         $response = $this->http->post($this->apiUrl, [], [
             'query' => [$message->getText()],
             'sessionId' => md5($message->getRecipient()),
-            'project' => 'default',
+            'project' => 'hoaxly',
                 ], [
             'Content-Type: application/json; charset=utf-8',
                 ], true);
