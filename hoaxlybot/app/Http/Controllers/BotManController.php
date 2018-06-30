@@ -21,6 +21,7 @@ use App\Conversations\en\IntendFAQMeaningfulness;
 use App\Conversations\en\IntendFAQTools4Us;
 use App\Conversations\en\IntendCheckUrl;
 
+use App\Conversations\en\IntendGoodbye;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
@@ -102,6 +103,9 @@ class BotManController extends Controller
                   break;
                 case 'faq_data_privacy':
                   $botman->startConversation(new IntendFAQDataPrivacy());
+                  break;
+                case 'goodbye':
+                  $botman->startConversation(new IntendGoodbye());
                   break;
               }
             }

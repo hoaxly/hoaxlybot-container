@@ -75,7 +75,7 @@ class IntendCheckURL extends Conversation {
 
     }
     else {
-      $this->say("Sorry, I don't know what url you want me to check! You can try 'Check url YOURURL'.");
+      $this->say("Sorry, I don't know what url you want me to check! You can try 'Check url YOUR-URL'.");
 
     }
 
@@ -166,7 +166,7 @@ class IntendCheckURL extends Conversation {
     $reviews = NULL;
     if (!empty($result['reviews'])) {
       foreach ($result['reviews'] as $review) {
-        $reviews[] = $review['Publisher']['name'] . ': ' . $review['title'] . ' (' . $review['ReviewRating']['normalizedAlternateName'] . '). Check the link: ' . $review['url'];
+        $reviews[] = $review['Publisher']['name'] . ': ' . $review['title'] . ' (' . $review['ReviewRating']['normalizedAlternateName'] . '). Check the review: ' . $review['url'];
       }
       return $reviews;
     }

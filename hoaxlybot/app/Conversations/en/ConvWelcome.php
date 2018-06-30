@@ -8,7 +8,7 @@ use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Conversations\Conversation;
 use App\Conversations\en\IntendFAQGoals;
-use App\Conversations\en\IntendCheckURL;
+use App\Conversations\en\IntendCheckURLHow;
 
 
 class ConvWelcome extends Conversation
@@ -31,7 +31,7 @@ class ConvWelcome extends Conversation
                 if ($answer->getValue() === 'url') {
                     // = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
                     //$this->say($joke->value->joke);
-                    $this->bot->startConversation(new IntendCheckURL(NULL));
+                    $this->bot->startConversation(new IntendCheckURLHow());
                 }
                 elseif ($answer->getValue() === 'faq_goals') {
                     $this->bot->startConversation(new IntendFAQGoals());
