@@ -60,4 +60,5 @@ You can change the api url in /app/Middleware/RasaNLU.php.
 # Todos
 - German conversations
 - Idea: Provide more detailed information how to fact check content
+- Idea: Provide information about fact-checking in general
 - Idea: Ask and collect information what information the bot should provide

@@ -15,7 +15,8 @@ class IntendFAQContribute extends Conversation
      */
     public function IntendFAQContribute()
     {
-        $this->say("You're very welcome to contribute! We are always looking for people creating new importer or help to improve our tools. Just contact us per e-mail (info+hoaxly@acolono.com) or have a look on open issues on github: WILL BE PROVIDED SOON");
+        $this->say("You're very welcome to contribute! We are always looking for people integrating new sources or help to improve our tools.");
+        $this->say("Just have a look on open issues on github or create an issue yourself: https://github.com/hoaxly");
     }
 
     /**

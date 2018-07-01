@@ -15,11 +15,11 @@ class IntendFAQHow extends Conversation
      */
     public function IntendFAQHow()
     {
-        $this->say('Central for this tool and all hoax.ly tools is a database about fact checks from various sources. There are thousands of fact checking sites out there.
+        $this->say('Central for this tool and all hoax.ly tools is an index about fact checks from various sources. There are thousands of fact checking sites out there.');
 
-        We aggregate this data, so that people can use it to build awesome tools and apps. We only save metadata and provide an open API to access this data.
+        $this->say('We aggregate metadata from these sites and make it available via an open API, so that people can use it to build awesome tools and apps.');
 
-        We also are going to build some tools consuming this data on our own: A browser extension, some chatbots for various platforms (its me!) and a fact checking search site.');
+        $this->say('We also are going to build some tools consuming this data on our own: A browser extension, some chatbots for various platforms (hey, its me!) and a fact checking search site.');
     }
 
     public function askNextStep()
