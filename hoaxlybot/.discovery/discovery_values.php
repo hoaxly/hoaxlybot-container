@@ -4,7 +4,8 @@ return array (
   array (
     0 => 'stubs/facebook.php',
     1 => 'stubs/slack.php',
-    2 => 'stubs/web.php',
+    2 => 'stubs/telegram.php',
+    3 => 'stubs/web.php',
   ),
   'botman/driver' => 
   array (
@@ -15,7 +16,13 @@ return array (
     4 => 'BotMan\\Drivers\\Facebook\\FacebookLocationDriver',
     5 => 'BotMan\\Drivers\\Facebook\\FacebookVideoDriver',
     6 => 'BotMan\\Drivers\\Slack\\SlackDriver',
-    7 => 'BotMan\\Drivers\\Web\\WebDriver',
+    7 => 'BotMan\\Drivers\\Telegram\\TelegramDriver',
+    8 => 'BotMan\\Drivers\\Telegram\\TelegramAudioDriver',
+    9 => 'BotMan\\Drivers\\Telegram\\TelegramFileDriver',
+    10 => 'BotMan\\Drivers\\Telegram\\TelegramLocationDriver',
+    11 => 'BotMan\\Drivers\\Telegram\\TelegramPhotoDriver',
+    12 => 'BotMan\\Drivers\\Telegram\\TelegramVideoDriver',
+    13 => 'BotMan\\Drivers\\Web\\WebDriver',
   ),
   'botman/commands' => 
   array (
@@ -25,5 +32,6 @@ return array (
     3 => 'BotMan\\Drivers\\Facebook\\Commands\\WhitelistDomains',
     4 => 'BotMan\\Drivers\\Facebook\\Commands\\Nlp',
     5 => 'BotMan\\Drivers\\Slack\\Commands\\SlackRTMListenCommand',
+    6 => 'BotMan\\Drivers\\Telegram\\Console\\Commands\\TelegramRegisterCommand',
   ),
 );
