@@ -75,7 +75,8 @@ class IntendCheckURL extends Conversation {
 
     }
     else {
-      $this->say("Sorry, I don't know what url you want me to check! You can try 'Check url YOUR-URL'.");
+      $this->say("Sorry, I don't know what url you want me to check! You can try 'Check url YOUR-URL'");
+      $this->say("For example: 'Check url https://www.maybe-a-misleading-article.com/1/.");
 
     }
 
@@ -115,7 +116,7 @@ class IntendCheckURL extends Conversation {
           //$this->bot->startConversation(new IntendFAQHow());
           $this->say('There are thousands of fact checking sites out there. Hoaxly aggregates this data, so that I can check if there is a review for a special item or url.');
           $this->say('Currently I can only query URLs, but in future I will also be able to check quotes or other information.');
-          $this->say('If you want me to check a URL just tell me something like "Please check url YOUR-URL".');
+          $this->say('If you want me to check an URL just tell me something like "Please check url YOUR-URL".');
           $this->say('The hoax.ly database is still in development. So please be patient if there is no result. Dont forget that you can always fact check content also yourself!');
         }
       ],

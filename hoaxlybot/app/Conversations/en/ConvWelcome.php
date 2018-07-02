@@ -22,7 +22,7 @@ class ConvWelcome extends Conversation
             ->fallback('Unable to ask question')
             ->callbackId('conv_welcome')
             ->addButtons([
-                Button::create('Check a URL')->value('url'),
+                Button::create('Check an URL')->value('url'),
                 Button::create('Inform me about hoaxly')->value('faq_goals'),
             ]);
 

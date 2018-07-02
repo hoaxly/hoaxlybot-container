@@ -13,7 +13,9 @@ class IntendCheckURLHow extends Conversation {
 
   public function IntendCheckURLHow() {
 
-    $this->say('You are welcome! You can ask me to check urls for example like this: "Check url MY-URL".');
+    $this->say('You are welcome! You can ask me to check urls for example like this: "Check url YOUR-URL".');
+    $this->say("For example: 'Check url https://www.maybe-a-misleading-article.com/1/. Yes you can try this one!");
+
   }
 
   /**
