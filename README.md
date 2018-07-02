@@ -43,11 +43,6 @@ Copy .env_loc as .env into the hoaxlybot folder.
 Please be aware that running the app without docker the rasa_nlu server is not reachable, so no answers
 will be provided by default. But see the section about how to use rasa to run a rasa server locally.
 
-## Issues
-
-MacOs: sh: composer: command not found
--> See https://laracasts.com/discuss/channels/general-discussion/sh-composer-command-not-found
-
 
 ## Using rasa
 
