@@ -76,7 +76,7 @@ class IntendCheckURL extends Conversation {
     }
     else {
       $this->say("Sorry, I don't know what url you want me to check! You can try 'Check url YOUR-URL'");
-      $this->say("For example: 'Check url https://www.maybe-a-misleading-article.com/1/.");
+      $this->say('For example: "Check url https://www.maybe-a-misleading-article.com/1/"');
 
     }
 
