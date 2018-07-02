@@ -55,6 +55,9 @@ The rasa server should be available by calling the url rasa:5000 (docker service
 Check the hoaxly/hoaxly-rasa-nlu_container repository to run a server locally under localhost:5000. 
 You can change the api url in /app/Middleware/RasaNLU.php.
 
+## License
+
+MIT. See included LICENSE.md file.
 
 
 # Todos
