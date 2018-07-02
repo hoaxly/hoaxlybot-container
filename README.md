@@ -1,7 +1,7 @@
 
 ## About
-
-This project is using Botman and Botman Studio, a laravel based chatbot framework: https://botman.io
+This project provides a chatbot for various platforms. 
+It is based on Botman and Botman Studio, a laravel based chatbot framework: https://botman.io
 
 ## Development with docker
 
