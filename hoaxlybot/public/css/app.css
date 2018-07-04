@@ -48,32 +48,47 @@ body {
 }
 
 .parallax > use {
+  -webkit-animation: move-forever 12s linear infinite;
   animation: move-forever 12s linear infinite;
 }
-
 .parallax > use:nth-child(1) {
+  -webkit-animation-delay: -3s;
   animation-delay: -3s;
   fill: #470077;
 }
-
 .parallax > use:nth-child(2) {
+  -webkit-animation-delay: -2s;
   animation-delay: -2s;
+  -webkit-animation-duration: 5s;
   animation-duration: 5s;
   fill: #570091;
 }
-
 .parallax > use:nth-child(3) {
+  -webkit-animation-delay: -4s;
   animation-delay: -4s;
+  -webkit-animation-duration: 3s;
   animation-duration: 3s;
-  fill: #6600AA;
+  fill: #8900e5;
+}
+
+@-webkit-keyframes move-forever {
+  0% {
+    -webkit-transform: translate(-90px, 0%);
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    -webkit-transform: translate(85px, 0%);
+    transform: translate(85px, 0%);
+  }
 }
 
 @keyframes move-forever {
   0% {
+    -webkit-transform: translate(-90px, 0%);
     transform: translate(-90px, 0%);
   }
-
   100% {
+    -webkit-transform: translate(85px, 0%);
     transform: translate(85px, 0%);
   }
 }
