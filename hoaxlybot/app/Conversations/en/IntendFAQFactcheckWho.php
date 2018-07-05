@@ -15,7 +15,7 @@ class IntendFAQFactcheckWho extends Conversation
      */
     public function IntendFAQFactcheckWho()
     {
-        $this->say('We aggregate content from good quality sources. We are not going to create fact checks ourselfs.');
+        $this->say('We aggregate content from good quality sources. We are not going to create fact checks ourselves.');
     }
 
     /**
