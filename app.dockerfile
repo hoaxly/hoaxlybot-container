@@ -13,7 +13,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get update \
     && apt-get install -y curl \
     && apt-get -y autoclean \
-    && apt-get install -y gnupg
+    && apt-get install -y gnupg \
+    && apt-get install -y libpng-dev
 
 # Install libpng because of node issues. See https://github.com/imagemin/pngquant-bin/issues/78.
 RUN apt-get install --no-install-recommends gcc make libpng-dev vim -y
@@ -27,7 +28,10 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/bi
 COPY hoaxlybot /var/www/hoaxlybot
 
 RUN cd /var/www/hoaxlybot && composer install --no-dev --optimize-autoloader
-RUN cd /var/www/hoaxlybot && npm install && npm run production
+
+RUN cd /var/www/hoaxlybot \
+    && npm install --force \
+    && npm run production
 
 WORKDIR "/var/www/hoaxlybot"
 
